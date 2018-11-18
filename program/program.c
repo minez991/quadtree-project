@@ -5,14 +5,23 @@
 
 typedef struct quadnode {
   int color;
-  quadnode* parentnode
-  quadnode* NW
-  quadnode* SW
-  quadnode* NE
-  quadnode* SE
-
+  struct quadnode* parentnode;
+  struct quadnode* NW;
+  struct quadnode* SW;
+  struct quadnode* NE;
+  struct quadnode* SE;
 }quadnode;
 
+int logof2(int width){
+  int n = 0;
+  do{
+    if (width != 1){
+      n = n+1;
+      width = width / 2;
+    }
+  }while(width != 1);
+  return n;
+}
 void readarray(int width, int image_array[][width]){
   int x,y,scan;
   do{
@@ -44,27 +53,28 @@ void printarray(int width, int image_array[][width]){
   }
 }
 
-void buildtree(int width,int image_array[][width],quadnode* node,int level){
+int buildtree(int width,int image_array[][width],quadnode* node,int level){
   //base
-  return 0
+  return 0;
 }
-void quadtree(int width,image_array[][width],quadnode* node){
-  maxlevel = log2(width);
-  buildtree(width,image_array,img, maxlevel);
+void quadtree(int width,int image_array[][width],quadnode* node){
+  int maxlevel = logof2(width);
+  buildtree(width,image_array,node, maxlevel);
 
 }
 
 int main(){
-    /*setting variables for working*/
+  /*setting variables for working*/
+  printf("%i",n);
   int width,B_num;
   scanf("%i",&width);
   scanf("%i",&B_num);
-  quadnode img;
+  quadnode node;
   int image_array[width][width];
 /*read and print data*/
   readarray(width, image_array);
   printarray(width,image_array);
 /*compress data*/
-  quadtree(width,image_array,&img);
+  quadtree(width,image_array,&node);
   return 0;
 }
