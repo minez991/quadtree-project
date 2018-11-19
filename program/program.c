@@ -8,7 +8,7 @@ struct Point{
 typedef struct quadnode {
   struct Point* topLeft;
   struct Point* bottomRight;
-  int x,y,color;
+  int max_x,max_y,min_x,min_y,color;
   struct quadnode* parentnode;
   struct quadnode* NW;
   struct quadnode* NE;
@@ -58,15 +58,15 @@ void printarray(int width, int image_array[][width]){
     printf("\n-----------------\n");
   }
 }
-
+/*
 int calculatecolor(int width, int image_array[][width], quadnode* node){
   int colorsum  = 0;
   int nodeN  = 0;
   int nodecolor;
   int x,y;
   printf("\n\n\nI am here\n\n\n");
-  for (x = node->topLeft->x ; x <= node->bottomRight->x; x++){
-    for (y = node ->topLeft->y;y <= node->bottomRight->y ; y++){
+  for (x = node->min_y ; x <= node->max_x; x++){
+    for (y = node ->min_y;y <= node->max_y ; y++){
       colorsum = colorsum + image_array[x][y];
       nodeN = nodeN + 1;
     }
@@ -93,20 +93,20 @@ void quadtree(int width,int image_array[][width],quadnode* node){
   buildtree(width,image_array,node,0);
 
 }
-
+*/
 int main(){
   /*setting variables for working*/
   int width,B_num;
   scanf("%i",&width);
   scanf("%i",&B_num);
-  quadnode* node;
-  node->max_x = 0;
+  //quadnode* node;
+  //node->max_x = 0;
   int image_array[width][width];
 /*read and print data*/
   readarray(width, image_array,B_num);
   printarray(width,image_array);
 
 /*compress data*/
-  quadtree(width,image_array,node);
+  //quadtree(width,image_array,node);
   return 0;
 }
