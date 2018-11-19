@@ -1,0 +1,18 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Peter/Documents/year2/quadtree/quadtree-project/program/program.c
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+math.h
+-
+

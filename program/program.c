@@ -8,6 +8,7 @@ struct Point{
 typedef struct quadnode {
   struct Point* topLeft;
   struct Point* bottomRight;
+  int x,y,color;
   struct quadnode* parentnode;
   struct quadnode* NW;
   struct quadnode* NE;
@@ -99,7 +100,7 @@ int main(){
   scanf("%i",&width);
   scanf("%i",&B_num);
   quadnode* node;
-  node->topLeft->x = 0;
+  node->max_x = 0;
   int image_array[width][width];
 /*read and print data*/
   readarray(width, image_array,B_num);
